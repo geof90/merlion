@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
 import rospy
-from cs5752_hw1.srv import move_robot
-from cs5752_hw1.msg import state
+from merlion_hw1.srv import move_robot
+from merlion_hw1.msg import state
 
 blocks = []
 

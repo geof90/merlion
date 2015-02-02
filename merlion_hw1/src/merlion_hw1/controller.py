@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import rospy
-from cs5752_hw1.srv import move_robot
+from merlion_hw1.srv import move_robot
 from std_msgs.msg import String
 
 num_blocks = 0

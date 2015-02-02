@@ -19,7 +19,6 @@ generate_messages(
   std_msgs
 )
 catkin_package(
-  INCLUDE_DIRS include
   LIBRARIES merlion_hw1
   CATKIN_DEPENDS roscpp rospy std_msgs
   DEPENDS system_lib
