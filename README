@@ -1,0 +1,5 @@
+1. Place the merlion_hw1 package in the src folder of the ROS workspace.
+2. Run 'catkin_make' in the ROS workspace
+3. Run 'roslaunch merlion_hw1 hw1.launch'. This initializes the sim_master and controller nodes
+4. Run 'rostopic echo state'. This should set up the command line to listen and print the 'state' messages published by the sim_master node.
+5. Run 'rostopic pub command std_msgs/String stack_descending'. This calls the 'command' service with the 'stack_descending' parameter. The state should now show [2,3,0] indicating that block 1 is on block 2, block 2 is on block 3, and block 3 is on the table.
