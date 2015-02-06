@@ -62,16 +62,21 @@ class Arm:
     def move_over_block(self, block_num): 
         if( (block_num == NOTHING) or 
             (block_num == self.grasped_block) or
-            (block_num >= len(blocks)) or
-            (blocks[block_num].block_above != NOTHING and block_num != TABLE) ):
+            (block_num >= len(blocks)) or 
+            (block_num != TABLE and blocks[block_num].block_above != NOTHING and self.gripper_state == CLOSED) or
+            (block_num != TABLE and blocks[block_num].block_above != NOTHING and blocks[blocks[block_num].block_above].block_above != NOTHING)):
             return False
         
         if(self.grasped_block!=NOTHING):
             blocks[blocks[self.grasped_block].block_below].block_above = NOTHING
             blocks[self.grasped_block].block_below = block_num
-        blocks[block_num].block_above = self.grasped_block
-        self.position_at_block = self.grasped_block
-        self.position_above_block = block_num
+            blocks[block_num].block_above = self.grasped_block
+            self.position_at_block = self.grasped_block
+            self.position_above_block = block_num
+        else:
+            self.position_at_block = blocks[block_num].block_above
+            self.position_above_block = block_num
+
         return True;
 
 arm = Arm()
